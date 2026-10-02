@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zəhranın 18-ci ad günü 🎂</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #ffe1ef, #e8ddff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        color: #3d2948;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 650px;
+        text-align: center;
+        background: rgba(255,255,255,0.8);
+        padding: 45px 25px;
+        border-radius: 30px;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        position: relative;
+        z-index: 2;
+    }
+
+    .small {
+        font-size: 18px;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 55px;
+        margin-bottom: 10px;
+    }
+
+    .age {
+        font-size: 100px;
+        font-weight: bold;
+        background: linear-gradient(45deg, #d84b91, #7652d6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .message {
+        font-size: 21px;
+        line-height: 1.6;
+        margin: 20px 0 30px;
+    }
+
+    button {
+        border: none;
+        padding: 15px 30px;
+        border-radius: 30px;
+        background: #d84b91;
+        color: white;
+        font-size: 17px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        background: #b93678;
+    }
+
+    .hidden {
+        display: none;
+        margin-top: 25px;
+        font-size: 20px;
+        line-height: 1.7;
+        animation: appear 1s ease;
+    }
+
+    @keyframes appear {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .balloon {
+        position: absolute;
+        width: 55px;
+        height: 70px;
+        border-radius: 50%;
+        animation: float 5s infinite ease-in-out;
+        opacity: 0.8;
+    }
+
+    .b1 {
+        background:#ff77aa;
+        left:8%;
+        top:15%;
+    }
+
+    .b2 {
+        background:#8d7bea;
+        right:10%;
+        top:20%;
+        animation-delay:1s;
+    }
+
+    .b3 {
+        background:#ffd166;
+        left:15%;
+        bottom:10%;
+        animation-delay:2s;
+    }
+
+    .b4 {
+        background:#65d6c5;
+        right:15%;
+        bottom:12%;
+        animation-delay:1.5s;
+    }
+
+    @keyframes float {
+        0%,100% {
+            transform: translateY(0) rotate(-4deg);
+        }
+        50% {
+            transform: translateY(-25px) rotate(4deg);
+        }
+    }
+
+    .confetti {
+        position: absolute;
+        width: 8px;
+        height: 15px;
+        top: -20px;
+        animation: fall 4s linear infinite;
+        z-index: 10;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(110vh) rotate(720deg);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="balloon b1"></div>
+<div class="balloon b2"></div>
+<div class="balloon b3"></div>
+<div class="balloon b4"></div>
+
+<div class="container">
+
+    <div class="small">
+        BU GÜN SƏNİN GÜNÜNDÜR ✨
+    </div>
+
+    <h1>Zəhra</h1>
+
+    <div class="age">
+        18
+    </div>
+
+    <div class="message">
+        🎂 18 yaşın mübarək! 🎉
+    </div>
+
+    <button onclick="showMessage()">
+        🎁 Sürprizi aç
+    </button>
+
+    <div id="surprise" class="hidden">
+        🎉 18 yaşın mübarək, Zəhra! 🎂💗<br>
+        Həmişə xoşbəxt ol, üzündən gülüş əskik olmasın! ✨<br>
+        Və nəhayət... <strong>LEGAL HƏYATIN BAŞLADI!</strong> 😂⚖️
+    </div>
+
+</div>
+
+<script>
+function showMessage() {
+
+    document.getElementById("surprise").style.display = "block";
+
+    for (let i = 0; i < 50; i++) {
+
+        let c = document.createElement("div");
+
+        c.className = "confetti";
+
+        c.style.left = Math.random() * 100 + "vw";
+
+        c.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        c.style.background =
+            ["#ff77aa", "#8d7bea", "#ffd166", "#65d6c5"]
+            [Math.floor(Math.random() * 4)];
+
+        document.body.appendChild(c);
+
+        setTimeout(() => {
+            c.remove();
+        }, 5000);
+    }
+}
+</script>
+
+</body>
+</html>
